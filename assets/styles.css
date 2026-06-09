@@ -152,12 +152,45 @@ strong{color:var(--text);font-weight:600}
 .hero{position:relative;overflow:hidden;background:var(--ink)}
 .hero .wrap{position:relative;z-index:2}
 .hero-inner{padding:clamp(3.5rem,9vw,7rem) 0 clamp(3rem,7vw,5.5rem)}
+.hero-photo{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:url("img/hero-cleanroom.png");
+  background-size:cover;background-position:center;
+  opacity:.5;
+}
+.hero-photo::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(8,19,13,.96) 0%,rgba(8,19,13,.82) 45%,rgba(8,19,13,.55) 100%),
+    linear-gradient(0deg,var(--ink-1) 2%,rgba(8,19,13,0) 40%);
+}
 .lattice{
   position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;
   background-image:
     linear-gradient(120deg,rgba(8,19,13,0) 35%,rgba(8,19,13,.9) 90%),
-    url("assets/lattice.svg");
+    url("lattice.svg");
   background-size:cover,46px 46px;
+}
+
+/* ---------- media / figures ---------- */
+.media{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--line-soft);background:var(--ink-2);
+}
+.media img{width:100%;height:100%;object-fit:cover;display:block}
+.media--tall img{aspect-ratio:4/5}
+.media--wide img{aspect-ratio:16/10}
+.media .cap{
+  position:absolute;left:0;right:0;bottom:0;
+  display:flex;align-items:center;gap:.55rem;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text);padding:1.4rem 1.1rem .9rem;
+  background:linear-gradient(0deg,rgba(8,19,13,.92),rgba(8,19,13,0));
+}
+.media .cap::before{content:"";width:7px;height:7px;background:var(--green);transform:rotate(45deg);flex:none}
+.media--ring::after{
+  content:"";position:absolute;inset:0;border-radius:var(--radius);
+  box-shadow:inset 0 0 0 1px rgba(47,184,92,.18);pointer-events:none;
 }
 .hero h1{max-width:18ch;margin-bottom:1.4rem}
 .hero h1 em{font-style:normal;color:var(--green);position:relative}
