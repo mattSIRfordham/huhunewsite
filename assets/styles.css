@@ -192,6 +192,21 @@ strong{color:var(--text);font-weight:600}
   content:"";position:absolute;inset:0;border-radius:var(--radius);
   box-shadow:inset 0 0 0 1px rgba(47,184,92,.18);pointer-events:none;
 }
+.media--banner img{aspect-ratio:21/7}
+.media--square img{aspect-ratio:1/1}
+@media(max-width:680px){.media--banner img{aspect-ratio:16/10}}
+
+/* full-bleed photo band behind a section */
+.section--photo{position:relative;overflow:hidden}
+.section--photo .photo-bg{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-size:cover;background-position:center;opacity:.22;
+}
+.section--photo .photo-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--ink-1) 0%,rgba(8,19,13,.7) 35%,rgba(8,19,13,.7) 65%,var(--ink-1) 100%);
+}
+.section--photo .wrap{position:relative;z-index:2}
 .hero h1{max-width:18ch;margin-bottom:1.4rem}
 .hero h1 em{font-style:normal;color:var(--green);position:relative}
 .hero .lede{margin-bottom:2.2rem}
